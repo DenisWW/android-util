@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import com.yanxing.base.BaseActivity
 import com.yanxing.util.EventBusUtil
 import org.greenrobot.eventbus.Subscribe
+import io.flutter.plugins.GeneratedPluginRegistrant
 
 class MainActivity : BaseActivity() {
 
@@ -15,6 +16,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun afterInstanceView() {
+        GeneratedPluginRegistrant.registerWith(this)
         EventBusUtil.getDefault().register(this)
         mMainFragment = MainFragment()
         mFragmentManager.beginTransaction()

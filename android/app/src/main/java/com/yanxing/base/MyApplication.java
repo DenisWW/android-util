@@ -9,12 +9,15 @@ import com.baidu.mapapi.SDKInitializer;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
+import io.flutter.view.FlutterMain;
+import io.flutter.app.FlutterApplication;
+
 
 /**
  * APP初始化配置
  * Created by lishuangxiang on 2016/1/26.
  */
-public class  MyApplication extends Application {
+public class  MyApplication extends FlutterApplication {
 
     private SQLiteDatabase db;
     private static MyApplication mMyApplication;

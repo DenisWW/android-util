@@ -40,7 +40,6 @@
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService"/>
 
-        <service android:name="com.dianmei.analyzelibrary.AnalyzeService"/>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -52,12 +51,16 @@
             android:process=":remote"/>
 
         <activity
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <meta-data
+                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
+                android:value="true" />
         </activity>
         <activity
             android:name=".ShowImageActivity"/>

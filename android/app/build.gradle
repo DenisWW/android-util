@@ -1,6 +1,20 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 //apply from: 'tinker-support.gradle'
 
 
@@ -65,12 +79,17 @@ android {
 
 }
 
+flutter {
+    source '../..'
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'com.google.android.material:material:1.1.0-alpha02'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
     implementation "androidx.multidex:multidex:2.0.1"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
 
@@ -94,5 +113,6 @@ dependencies {
     implementation project(':downloadlibrary')
 //    compile project(':networklibrary')
     api 'com.yanxing:networklibrary:2.0.0'
-    api project(':commonlibrary')
+    //api project(':commonlibrary')
+    implementation 'com.yanxing:commonlibrary:1.0.0'
 }
