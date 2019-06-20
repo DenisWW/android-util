@@ -63,8 +63,6 @@
                 android:value="true" />
         </activity>
         <activity
-            android:name=".ShowImageActivity"/>
-        <activity
             android:name=".animation.LayoutAnimationExampleActivity"/>
         <activity
             android:name=".animation.ObjectAnimationActivity"/>
@@ -78,18 +76,12 @@
         <activity
             android:name=".animation.HeartBubbleViewActivity"/>
         <activity
-            android:name=".SurfaceViewMediaPlayerActivity"
-            android:theme="@style/AppTheme"/>
-        <activity
             android:name=".animation.ProgressBarActivity"/>
         <activity
             android:name=".animation.CircleProgressBarActivity"/>
         <activity
             android:name=".animation.RippleLayoutActivity"
             android:hardwareAccelerated="false"/>
-        <activity
-            android:name=".BrowseImageActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".WebOpenPhotoActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".AMapActivity"/>
